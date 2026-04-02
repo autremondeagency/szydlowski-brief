@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WSTAWAJ</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, sans-serif;
+    background: #0a0a0a;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    text-align: center;
+  }
+  h1 {
+    font-size: clamp(2rem, 8vw, 4rem);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+  .time { color: #fbbf24; font-size: 1.2rem; margin-bottom: 2rem; }
+  .message {
+    max-width: 500px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #a8a29e;
+  }
+  .message strong { color: #fff; }
+  .highlight { color: #fbbf24; font-weight: 700; }
+  .footer { margin-top: 3rem; font-size: 0.8rem; color: #44403c; }
+  .checklist {
+    text-align: left;
+    margin: 2rem auto;
+    max-width: 400px;
+    list-style: none;
+  }
+  .checklist li {
+    padding: 0.5rem 0;
+    color: #a8a29e;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 0.95rem;
+  }
+  .checklist li::before {
+    content: '→ ';
+    color: #fbbf24;
+  }
+</style>
+</head>
+<body>
+
+<h1>Wstawaj, wojowniku.</h1>
+<div class="time">6:30 — 3 kwietnia 2026</div>
+
+<div class="message">
+  <p>3 godziny snu. I co z tego?</p>
+  <br>
+  <p>Twój dziadek Józef w <strong>1945</strong> wstał w zrujnowanym Gdańsku i zaczął piec chleb. Nie miał business planu. Nie miał Instagrama. Nie miał nic — oprócz rąk i serca.</p>
+  <br>
+  <p>Ty masz <strong>ekipę filmową o 10:00</strong>, brief który wygląda jak z agencji za 50k, research naukowy, i pomysły które żaden CMO by nie wymyślił.</p>
+  <br>
+  <p>3 godziny snu? <span class="highlight">Józef by się śmiał.</span></p>
+  <br>
+  <p><strong>Obiecałeś Pati.</strong> Więc wstawaj.</p>
+</div>
+
+<ul class="checklist">
+  <li>Zadzwoń do Agnieszki — uprzedź o ekipie</li>
+  <li>Zadzwoń do kierownika sklepów</li>
+  <li>Sprawdź czy Staszek i Filip widzieli brief</li>
+  <li>Ogarnij Anię z HP → La Bagatela</li>
+  <li>Jedź na plan. Bądź tam.</li>
+</ul>
+
+<div class="message">
+  <p><span class="highlight">Nie jesteś ofiarą. Jesteś liderem zmian.</span></p>
+  <p>Jedna rozmowa. Jedna decyzja. Jeden dzień.</p>
+  <br>
+  <p>A ALGORYTM? Wieczorem. Obiecuję.</p>
+</div>
+
+<div class="footer">"Żeby upiec dobry chleb, trzeba włożyć w to całe serce." — Józef, 1945</div>
+
+</body>
+</html>
