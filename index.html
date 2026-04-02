@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brief: Szydłowski x Wielkanoc 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0c0a09;
+    --card: #1c1917;
+    --card2: #292524;
+    --ecru: #F7F5ED;
+    --brown: #92400e;
+    --brown-light: #d97706;
+    --amber: #fbbf24;
+    --text: #fafaf9;
+    --text2: #a8a29e;
+    --text3: #78716c;
+    --red: #ef4444;
+    --green: #22c55e;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+    background: radial-gradient(ellipse at 50% 0%, rgba(146,64,14,0.15) 0%, transparent 70%);
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: var(--brown);
+    color: var(--ecru);
+    padding: 0.4rem 1.2rem;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: 1.1;
+    color: var(--ecru);
+    max-width: 900px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 span { color: var(--brown-light); }
+
+  .hero-sub {
+    font-size: 1.2rem;
+    color: var(--text2);
+    max-width: 600px;
+    margin-bottom: 3rem;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .stat { text-align: center; }
+
+  .stat-number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.5rem;
+    color: var(--amber);
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--text3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    font-size: 0.8rem;
+    color: var(--text3);
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+  }
+
+  section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+
+  .section-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--brown-light);
+    margin-bottom: 0.5rem;
+  }
+
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    color: var(--ecru);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 2rem 0 0.8rem;
+  }
+
+  p { color: var(--text2); margin-bottom: 1rem; }
+  strong { color: var(--text); }
+
+  .problem-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  @media (max-width: 600px) {
+    .problem-grid { grid-template-columns: 1fr; }
+  }
+
+  .problem-card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .problem-card.bad { border-left: 3px solid var(--red); }
+  .problem-card.good { border-left: 3px solid var(--green); }
+
+  .problem-card .label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .problem-card.bad .label { color: var(--red); }
+  .problem-card.good .label { color: var(--green); }
+
+  .problem-card .big {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.5rem;
+    color: var(--text);
+    margin-bottom: 0.3rem;
+  }
+
+  .problem-card .desc {
+    font-size: 0.85rem;
+    color: var(--text3);
+  }
+
+  .insight-box {
+    background: linear-gradient(135deg, rgba(146,64,14,0.2), rgba(217,119,6,0.1));
+    border: 1px solid rgba(217,119,6,0.3);
+    border-radius: 20px;
+    padding: 3rem;
+    text-align: center;
+    margin: 2rem 0;
+  }
+
+  .insight-box .quote {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+    color: var(--ecru);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+
+  .insight-box .explain {
+    color: var(--text2);
+    font-size: 0.95rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .science-grid {
+    display: grid;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .science-card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    border: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .science-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--card2);
+    border-radius: 10px;
+  }
+
+  .science-card .title {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--text);
+    margin-bottom: 0.3rem;
+  }
+
+  .science-card .detail {
+    font-size: 0.8rem;
+    color: var(--text3);
+  }
+
+  .mission-banner {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 2rem 0;
+    border: 1px solid rgba(251,191,36,0.2);
+    text-align: center;
+  }
+
+  .mission-banner .date {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem;
+    color: var(--amber);
+  }
+
+  .mission-banner .what {
+    color: var(--text2);
+    margin-top: 0.5rem;
+  }
+
+  .fact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  @media (max-width: 600px) {
+    .fact-grid { grid-template-columns: 1fr; }
+  }
+
+  .fact-card {
+    background: var(--card);
+    border-radius: 14px;
+    padding: 1.5rem;
+    border: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .fact-card .number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    color: var(--amber);
+    margin-bottom: 0.3rem;
+  }
+
+  .fact-card .fact-title {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--text);
+    margin-bottom: 0.3rem;
+  }
+
+  .fact-card .fact-detail {
+    font-size: 0.8rem;
+    color: var(--text3);
+  }
+
+  .fact-card.wide {
+    grid-column: 1 / -1;
+  }
+
+  .question-list {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+  }
+
+  .question-list li {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
+    color: var(--text2);
+    border: 1px solid rgba(255,255,255,0.05);
+    position: relative;
+    padding-left: 3rem;
+  }
+
+  .question-list li::before {
+    content: '?';
+    position: absolute;
+    left: 1.2rem;
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.2rem;
+    color: var(--amber);
+  }
+
+  .question-list li strong { color: var(--text); }
+
+  .divider {
+    width: 60px;
+    height: 3px;
+    background: var(--brown);
+    margin: 4rem auto;
+    border-radius: 2px;
+  }
+
+  .footer {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--text3);
+    font-size: 0.8rem;
+  }
+
+  .footer .motto {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem;
+    color: var(--ecru);
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-box {
+    background: linear-gradient(135deg, rgba(146,64,14,0.3), rgba(217,119,6,0.15));
+    border: 1px solid rgba(217,119,6,0.3);
+    border-radius: 16px;
+    padding: 2.5rem;
+    text-align: center;
+    margin: 2rem 0;
+  }
+
+  .cta-box h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    color: var(--ecru);
+    margin: 0 0 0.5rem;
+  }
+
+  .cta-box p {
+    color: var(--text2);
+    margin: 0;
+    font-size: 0.9rem;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">Brief Poufny</div>
+  <h1>Szydłowski ma <span>80 lat</span>.<br>Czas, żeby świat się dowiedział.</h1>
+  <p class="hero-sub">Wielkanoc 2026. Pierwszy strzał. Przeczytajcie, przekmińcie, a potem gadamy.</p>
+
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-number">1945</div>
+      <div class="stat-label">Rok założenia</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">579</div>
+      <div class="stat-label">Followersów na IG</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">13</div>
+      <div class="stat-label">Lokalizacji</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">80</div>
+      <div class="stat-label">Lat tradycji</div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">Scrolluj w dół</div>
+</div>
+
+<!-- PROBLEM -->
+<section>
+  <div class="section-label">Sytuacja</div>
+  <h2>Najlepsza piekarnia w Gdańsku jest niewidoczna</h2>
+  <p>Andrzej Szydłowski — <strong>najlepszy piekarz na świecie</strong> (tytuł 2007, Światowa Unia Piekarzy). 3 pokolenia. 13 lokalizacji. A na Instagramie przegrywa z piekarnią, która ma 2 punkty i zero historii.</p>
+
+  <div class="problem-grid">
+    <div class="problem-card bad">
+      <div class="label">Szydłowski</div>
+      <div class="big">579</div>
+      <div class="desc">followersów na IG<br>13 lokalizacji, 80 lat historii, tytuł światowy</div>
+    </div>
+    <div class="problem-card good">
+      <div class="label">Le Delice (konkurent)</div>
+      <div class="big">21 000</div>
+      <div class="desc">followersów na IG<br>2 lokalizacje, ~10 lat, zero tytułów</div>
+    </div>
+  </div>
+
+  <p><strong>Problem nie jest w produkcie.</strong> 904 posty na IG — same zdjęcia produktów. Zero Reelsów. Zero storytellingu. Zero emocji. Nikt nie opowiada tej historii.</p>
+  <p>Dla kontekstu: rodzinna piekarnia z UK (Ryders Bakery, od 1972) przeszła na Reelsy → <strong>+1077% zasięgu.</strong> Piekarnia z Ohio wrzuciła tygodniowe BTS → <strong>+27% odwiedzin w 60 dni.</strong></p>
+</section>
+
+<div class="divider"></div>
+
+<!-- INSIGHT -->
+<section>
+  <div class="section-label">Core Insight</div>
+  <h2>To nie jest reklama piekarni</h2>
+
+  <div class="insight-box">
+    <div class="quote">"Kup mamie smak<br>jej dzieciństwa."</div>
+    <div class="explain">Ludzie nie kupują tu chleba. Kupują emocję. Młoda osoba wchodzi, kupuje rogala — i mama ma łzy w oczach, bo to smak z jej dzieciństwa. Babcia tu chodziła. Mama tu chodziła. Teraz Ty.</div>
+  </div>
+
+  <p>To nie jest slogan wymyślony przy biurku. To jest insight poparty nauką:</p>
+
+  <div class="science-grid">
+    <div class="science-card">
+      <div class="science-icon">🧠</div>
+      <div>
+        <div class="title">Nostalgia zwiększa gotowość do zapłaty o 13-25%</div>
+        <div class="detail">Gen Z pod wpływem nostalgii płaci więcej. 75% konsumentów chętniej kupuje gdy reklama wywołuje wspomnienia. 6 eksperymentów potwierdza.</div>
+      </div>
+    </div>
+    <div class="science-card">
+      <div class="science-icon">👶</div>
+      <div>
+        <div class="title">25-latek MOŻE tęsknić za 1945 rokiem</div>
+        <div class="detail">"Vicarious nostalgia" — młodzi ludzie odczuwają tęsknotę za epoką, której nie przeżyli, jeśli przekaz użyje archiwalnych zdjęć, retro typografii, opowieści rodzinnych. 7 badań potwierdza.</div>
+      </div>
+    </div>
+    <div class="science-card">
+      <div class="science-icon">🍞</div>
+      <div>
+        <div class="title">Jedzenie jest najsilniejszym wyzwalaczem nostalgii</div>
+        <div class="detail">33% ludzi spontanicznie kojarzy nostalgię z jedzeniem — to najczęstsza kategoria. Zapach pieczywa potroił sprzedaż w supermarketach.</div>
+      </div>
+    </div>
+    <div class="science-card">
+      <div class="science-icon">🎁</div>
+      <div>
+        <div class="title">Prezent doświadczeniowy buduje silniejszą więź niż materialny</div>
+        <div class="detail">Chleb z 80-letniej piekarni to nie produkt — to doświadczenie. Dawanie go mamie aktywuje oksytocynę — hormon więzi i zaufania. 4 badania.</div>
+      </div>
+    </div>
+    <div class="science-card">
+      <div class="science-icon">📺</div>
+      <div>
+        <div class="title">Case study: Hovis (UK, piekarnia)</div>
+        <div class="detail">Reklama z chłopcem przebiegającym przez 122 lat historii z bochenkiem chleba → +£12 milionów sprzedaży w tygodniach po premierze. Reżyseria: młody Ridley Scott.</div>
+      </div>
+    </div>
+    <div class="science-card">
+      <div class="science-icon">🇵🇱</div>
+      <div>
+        <div class="title">77% Polaków zapłaci więcej za rzemieślniczy chleb</div>
+        <div class="detail">Piekarnie to JEDYNA rosnąca kategoria sklepów w Polsce (+1.82% w 2024). 70% Polaków je chleb na zakwasie codziennie.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FAKTY -->
+<section>
+  <div class="section-label">Amunicja</div>
+  <h2>Czego nie wiecie o Szydłowskim</h2>
+  <p>Fakty, które można zamienić w content. Każdy z nich to potencjalny Reel, hook, albo story.</p>
+
+  <div class="fact-grid">
+    <div class="fact-card">
+      <div class="number">1945</div>
+      <div class="fact-title">Założona w zrujnowanym Gdańsku</div>
+      <div class="fact-detail">Józef Szydłowski, 25 lat, 1 września 1945. Najpierw Łuków, potem Brzeźno, potem Wrzeszcz. "Żeby upiec dobry chleb, trzeba włożyć w to całe serce."</div>
+    </div>
+    <div class="fact-card">
+      <div class="number">3</div>
+      <div class="fact-title">Pokolenia piekarzy</div>
+      <div class="fact-detail">Józef (założyciel) → Andrzej (przejął w 1974) → Paweł (prezes od 2015). Ta sama piekarnia, te same wartości. 80 lat ciągłości.</div>
+    </div>
+    <div class="fact-card">
+      <div class="number">#1</div>
+      <div class="fact-title">Najlepszy piekarz na świecie</div>
+      <div class="fact-detail">Andrzej Szydłowski — tytuł od Światowej Unii Piekarzy i Cukierników, 2007. Były prezes UIB. Krzyż Kawalerski Orderu Odrodzenia Polski. Juror Coupe du Monde de la Boulangerie.</div>
+    </div>
+    <div class="fact-card">
+      <div class="number">50 000</div>
+      <div class="fact-title">Pączków w jeden Tłusty Czwartek</div>
+      <div class="fact-detail">Produkcja startuje o 21:00 dnia wcześniej. Pan Andrzej osobiście próbuje każdy rodzaj. "Spanie raczej nie wchodzi w grę."</div>
+    </div>
+    <div class="fact-card">
+      <div class="number">5</div>
+      <div class="fact-title">Faz wypieczypu chleba</div>
+      <div class="fact-detail">Każdy bochenek ręcznie formowany. Naturalne zakwasy. Zero ulepszaczy, zero spulchniaczy. Hasło: "Nie jesteśmy siecią. Jesteśmy Twoimi sąsiadami."</div>
+    </div>
+    <div class="fact-card">
+      <div class="number">15</div>
+      <div class="fact-title">Pracowników odznaczonych</div>
+      <div class="fact-detail">Na 80-lecie (wrzesień 2025) — 15 pracowników dostało Medale Prezydenta Gdańska. Gala na 34. piętrze Olivia Star.</div>
+    </div>
+    <div class="fact-card wide">
+      <div class="number">5.8 / 6.0</div>
+      <div class="fact-title">#1 w rankingu piekarni w Trójmieście</div>
+      <div class="fact-detail">66 ocen na trojmiasto.pl. Klienci chwalą: "zawsze świeże", "obsługa uśmiechnięta i pomocna", "chleb razowy — najlepszy". Rogale gdańskie opisywane jako "kruche, maślane i pełne aromatycznego białego maku".</div>
+    </div>
+    <div class="fact-card wide">
+      <div class="fact-title" style="color: var(--amber);">Święto Chleba w Gdańsku</div>
+      <div class="fact-detail">Coroczne od 1995 roku — zainicjowane przez Andrzeja Szydłowskiego. 30 lat organizowania wydarzenia, które celebruje rzemiosło piekarskie w Gdańsku.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WIELKANOC -->
+<section>
+  <div class="section-label">Kontekst</div>
+  <h2>Wielkanoc za 3 dni</h2>
+
+  <div class="mission-banner">
+    <div class="date">Wielkanoc: 6 kwietnia</div>
+    <div class="what">Koszyczek: 5 kwietnia | Ostatni dzień zamówień: piątek 4 kwietnia</div>
+  </div>
+
+  <p>Ludzie szukają teraz babek, mazurków, chleba na zakwasie do koszyczka, rogali. Szydłowski to wszystko ma — w 13 lokalizacjach — ale nikt im o tym nie powiedział na IG.</p>
+
+  <p><strong>Co jest na ladzie:</strong> babki wielkanocne, mazurki, rogale gdańskie, chleb na zakwasie, torty na zamówienie, drożdżówki. Normalny asortyment, ale ludzie potrzebują powodu żeby przyjść tu a nie do Biedronki.</p>
+
+  <p><strong>Ten powód to nie "oferta wielkanocna".</strong> Ten powód to: "mama będzie szczęśliwa kiedy to dostanie, bo to smak który pamięta."</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- PYTANIA -->
+<section>
+  <div class="section-label">Do przekminienia</div>
+  <h2>Zanim się zdzwonimy</h2>
+  <p>Przeczytaliście. Teraz przekmińcie i dajcie znać co widzicie. Kilka rzeczy do przemyślenia:</p>
+
+  <ul class="question-list">
+    <li>Ta piekarnia ma <strong>80 lat historii, tytuł najlepszego piekarza na świecie i 579 followersów</strong>. Le Delice ma 2 lokalizacje i 21 000. Co byście zrobili żeby to zmienić?</li>
+    <li>Core insight: <strong>"Kup mamie smak jej dzieciństwa."</strong> Jak Wy to widzicie? Jak byście to pokazali?</li>
+    <li>Są dwa światy: <strong>proces (jak to powstaje)</strong> i <strong>emocja (dlaczego to ważne)</strong>. Jeden jest łatwiejszy do nakręcenia, drugi trudniejszy. Który byście wybrali na start?</li>
+    <li>Mamy dostęp do <strong>produkcji — mąka, piec, ręce piekarza, nocna zmiana</strong>. I do <strong>sklepu — lada, klienci, produkty</strong>. Co Was bardziej ciągnie?</li>
+    <li>Szydłowski gra <strong>autentycznością, nie estetyką</strong>. Le Delice gra food porn i lifestyle. Jak pokazać autentyczność żeby nie wyglądała na "starą" i "nudną"?</li>
+    <li>Gdyby <strong>pan Andrzej (70+, najlepszy piekarz na świecie)</strong> stanął przed kamerą — co powinno się stać?</li>
+    <li>Wiecie że <strong>85% ludzi ogląda Reelsy bez dźwięku</strong>? Jak to wpływa na to co planujecie?</li>
+    <li>Wielkanoc za 3 dni. <strong>Co jest realne do zrobienia jutro</strong> żeby miało sens?</li>
+  </ul>
+
+  <div class="cta-box">
+    <h3>Przekmińcie. Potem dzwonimy.</h3>
+    <p>Wy wiecie jak kręcić. Ja wiem co jest ważne. Razem to ogarniemy.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="motto">"Żeby upiec dobry chleb, trzeba włożyć w to całe serce."</div>
+  <p>— Józef Szydłowski, 1945</p>
+  <br>
+  <p>Brief: Krystian Trubisz | 2 kwietnia 2026</p>
+</div>
+
+</body>
+</html>
